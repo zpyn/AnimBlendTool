@@ -8,17 +8,17 @@ import maya.cmds as cmds
 class MayaOperations():
     """
     Present Functions for cosntraint, bake and other process needed
-    to achieve a blen animation inside Autodes Maya software
+    to blend animation inside Autodes Maya software
     """
     def __init__(self):
         pass
 
     def bake_controls(self, controls, smart_bake = False):
         """
-        Bake the simulation for the selected controls with the option for smart baking
+        Bake the simulation for the selected controls with the option for smart baking.
         
         Args:
-            smart_bake (bool): whether excute it with smart bake or not
+            smart_bake (bool): Whether to execute it with smart bake or not.
 
         Returns:
             None
@@ -31,17 +31,17 @@ class MayaOperations():
 
     def blend_animation(self, controls, first_source, second_source, target, time):
         """
-        Executes the two main functions to constraint and blend the animation
+        Executes the two main functions to constraint and blend the animation.
 
         Args:
-            controls (list) : list of rig controls
-            first_source (str): first rig root node name that will be taken 
-                                for the blend
-            second_source (str): second rig root node name that will be taken 
-                                 for the blend
-            target (str): target rig root node that will be driven by 
-                          the first and second source
-            time (tuple): blend time range (start frame, end frame)
+            controls (list) : List of rig controls.
+            first_source (str): First rig root node name that will be taken 
+                                for the blend.
+            second_source (str): Second rig root node name that will be taken 
+                                 for the blend.
+            target (str): Target rig root node that will be driven by 
+                          the first and second source.
+            time (tuple): Blend time range (start frame, end frame).
 
         Returns:
             None
@@ -57,13 +57,13 @@ class MayaOperations():
         This function constraints each control of the given list and skips locked channels if needed.
 
         Args:
-            contorls (list): list of rig controls to constraint
-            first_source (str): first rig root node that containts the controls that will drive the target
-            second_source (str): second rig root node that containts the controls that will drive the target
-            target (str) :  traget rig which controls will be driven by first 2
+            contorls (list): List of rig controls to constraint.
+            first_source (str): First rig root node that containts the controls that will drive the target.
+            second_source (str): Second rig root node that containts the controls that will drive the target.
+            target (str) :  traget Rig which controls will be driven by first 2.
         
         Returns:
-            list (str):  a list with the created parent constraint nodes
+            list (str):  List with the created parent constraint nodes.
 
         """
         first_source_ns = first_source.split(":")[0]
@@ -96,8 +96,8 @@ class MayaOperations():
         This function adds keyframes to the constraint nodes to blend the animation
 
         Args:
-            constraint_ls (list): a list of constraint nodes 
-            time (tuple):  blend time range (start frame, end frame)
+            constraint_ls (list): List of constraint nodes.
+            time (tuple):  Blend time range (start frame, end frame).
 
         Returns:
             None
@@ -140,9 +140,9 @@ class MayaOperations():
         This functions removes parent constraint nodes and animation curves connected to the selected controls
 
         Args:
-            ctrl_ls (list): A list of rig controls that will be cleaned
+            ctrl_ls (list): List of rig controls that will be cleaned.
         
-        Returms:
+        Returns:
             None
 
         """
@@ -181,7 +181,7 @@ class MayaOperations():
             None
 
         Returns:
-            string : a string of all selected nodes separeted by commas
+            string : A string of all selected nodes separeted by commas
         
         """
         selection_ls = cmds.ls(selection=1)
