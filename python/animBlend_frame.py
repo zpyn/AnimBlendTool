@@ -49,7 +49,7 @@ class AnimWidget(animBlend_ui.BlendAnimUI):
 
     def run(self):
         """
-        Collects the data from the Ui and excute 
+        Collects the data from the UI and execute 
         the selected Operation (contraint, bake, constraint and bake)
         """
         controls = self.controls_le.text().split(",")

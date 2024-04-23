@@ -192,7 +192,7 @@ class MayaOperations():
         """
         This funtion calls the Maya confirm dialog for user feedback
         Args:
-            m (str): Message to displat
+            m (str): Message to display
             t (str): Title for the dialog window
         Returns:
             None
