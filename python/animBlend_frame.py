@@ -8,7 +8,7 @@ from . import animBlend_core
 class AnimWidget(animBlend_ui.BlendAnimUI):
     """
     Anim Blend Dialog Widget, presents options to blend and bake animation 
-    of two source rigs into a target rig
+    of two source rigs into a target rig.
     """
     def __init__(self, **kwargs):
         super(AnimWidget,self).__init__()
@@ -17,7 +17,7 @@ class AnimWidget(animBlend_ui.BlendAnimUI):
     
     def set_connections(self):
         """
-        This functions connects all widgets with their particular function
+        This functions connects all widgets with their particular function.
         """
         self.controls_btn.clicked.connect(partial(self.load_content, 
                                                   self.controls_btn))
@@ -33,8 +33,11 @@ class AnimWidget(animBlend_ui.BlendAnimUI):
     
     def load_content(self, button):
         """
-        This functions sets the text of the correspongin line edit 
+        This functions sets the text of the correspongin line edit.
         of the pressed button 
+
+        Args:
+            button (QtPushButton): Button that has been pressed
         """
         lineEdit =self.btns_dict[button.objectName()]
         selection = self.maya_operations.get_selection()
@@ -42,7 +45,7 @@ class AnimWidget(animBlend_ui.BlendAnimUI):
     
     def delete(self):
         """
-        Calls the break connection function from the Maya Operations
+        Calls the break connection function from the Maya operations.
         """
         controls = self.controls_le.text().split(",")
         self.maya_operations.break_connection(controls)
@@ -66,7 +69,8 @@ class AnimWidget(animBlend_ui.BlendAnimUI):
             time_ =  self.maya_operations.get_frameRange()
         
         if operation_type == 0:
-            self.maya_operations.drop_message(t="Invalid Operation Type", m= "Please select a operation type!")
+            self.maya_operations.drop_message(t="Invalid Operation Type", 
+                                              m="Please select a operation type!")
         elif operation_type == 1:
             self.maya_operations.blend_animation(controls,first_source,second_sources,target,time_)
         elif operation_type == 2:
@@ -77,7 +81,7 @@ class AnimWidget(animBlend_ui.BlendAnimUI):
 
     def get_operation_type(self):
         """
-        Evaluate wich Radial button of the operations is checked
+        Evaluate wich Radial button of the operations is checked.
 
         Returns:
             option (int): 
