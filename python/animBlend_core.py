@@ -8,7 +8,7 @@ import maya.cmds as cmds
 class MayaOperations():
     """
     Present Functions for cosntraint, bake and other process needed
-    to blend animation inside Autodes Maya software
+    to blend animation inside Autodesk Maya software
     """
     def __init__(self):
         pass
@@ -105,7 +105,7 @@ class MayaOperations():
         for con in constraint_ls:
             for attr in cmds.listAttr(con):
                 if re.search(r'[W[0-9]', attr):
-                    if "0" in attr:
+                    if "W0" in attr:
                         cmds.setKeyframe(con, 
                                          t=time[0], 
                                          v=1, 
@@ -120,7 +120,7 @@ class MayaOperations():
                                          inTangentType="linear", 
                                          outTangentType= "linear"
                                          )  
-                    elif "1" in attr:
+                    elif "W1" in attr:
                         cmds.setKeyframe(con,t=time[0],
                                          v=0,
                                          attribute=attr,
@@ -163,7 +163,7 @@ class MayaOperations():
     
     def get_frameRange(self):
         """
-        This functions querys the start and end frame of the timeline
+        This functions querys the start and end frame of the timeline.
         Args:
             None
 
@@ -181,7 +181,7 @@ class MayaOperations():
             None
 
         Returns:
-            string : A string of all selected nodes separeted by commas
+            string : A string of all selected nodes separeted by commas.
         
         """
         selection_ls = cmds.ls(selection=1)
@@ -190,10 +190,10 @@ class MayaOperations():
     
     def drop_message(self, m= "", t=""):
         """
-        This funtion calls the Maya confirm dialog for user feedback
+        This funtion calls the Maya confirm dialog for user feedback.
         Args:
-            m (str): Message to display
-            t (str): Title for the dialog window
+            m (str): Message to display.
+            t (str): Title for the dialog window.
         Returns:
             None
         """
